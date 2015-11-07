@@ -1,0 +1,4 @@
+---
+# defaults file for mapr_spark_test
+
+spark_version: 1.4.1

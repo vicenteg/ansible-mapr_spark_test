@@ -1,0 +1,12 @@
+---
+# tasks file for mapr_spark_test
+
+- name: SparkPi example
+  run_once: yes
+  sudo_user: '{{mapr_admin_username}}'
+  command: /opt/mapr/spark/spark-{{spark_version}}/bin/run-example SparkPi
+  environment:
+    MASTER: yarn-client
+  register: spark_output
+  failed_when: "'Pi is roughly 3.14' not in spark_output.stdout"
+  changed_when: false

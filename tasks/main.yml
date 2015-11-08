@@ -8,5 +8,5 @@
   environment:
     MASTER: yarn-client
   register: spark_output
-  failed_when: "'Pi is roughly 3.14' not in spark_output.stdout"
+  failed_when: "'Pi is roughly 3.1' not in spark_output.stdout"
   changed_when: false

@@ -3,7 +3,8 @@
 
 - name: SparkPi example
   run_once: yes
-  sudo_user: '{{mapr_admin_username}}'
+  become: yes
+  become_user: '{{mapr_admin_username}}'
   command: /opt/mapr/spark/spark-{{spark_version}}/bin/run-example SparkPi
   environment:
     MASTER: yarn-client

@@ -11,3 +11,13 @@
   register: spark_output
   failed_when: "'Pi is roughly 3.1' not in spark_output.stdout"
   changed_when: false
+
+- name: SparkPi example (yarn-cluster)
+  run_once: yes
+  become: yes
+  become_user: '{{mapr_admin_username}}'
+  command: /opt/mapr/spark/spark-{{spark_version}}/bin/run-example SparkPi
+  environment:
+    MASTER: yarn-cluster
+  register: spark_output
+  changed_when: false
